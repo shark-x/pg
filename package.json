@@ -1,0 +1,23 @@
+{
+  "name": "pg_scripts",
+  "version": "1.0.0",
+  "description": "Template for working with the Postrgess DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shark-x/pg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shark-x/pg/issues"
+  },
+  "homepage": "https://github.com/shark-x/pg#readme",
+  "devDependencies": {
+    "pg": "^8.5.1"
+  }
+}
