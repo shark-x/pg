@@ -24,7 +24,7 @@ Create a file credentials.json at the root of the projec. Add the settings for d
     "dbName": "myDB"
 }
 ```
-Edit parameter tableName in testCOnnect.js on your table.
+Edit parameter tableName in testConnect.js on your table.
 ```javascript
 const credentials = require('./credentials.json')
 const DBPostgress = require('./db')
