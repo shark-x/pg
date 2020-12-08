@@ -24,3 +24,26 @@ Create a file credentials.json at the root of the projec. Add the settings for d
     "dbName": "myDB"
 }
 ```
+Edit parameter tableName in testCOnnect.js on your table.
+```javascript
+const credentials = require('./credentials.json')
+const DBPostgress = require('./db')
+const pg = new DBPostgress(credentials)
+const tableName = 'YOUR_TABLE_NAME'
+
+(async () => {
+
+    await pg.openConnection()
+
+    const result = await pg.getAllFromTable(tableName)
+    console.log(`All information from ${tableName} table >>> \n`, result)
+
+    await pg.closeConnection()
+
+
+})()
+```
+
+Run next command
+
+    $ node testConnect.js
