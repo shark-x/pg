@@ -15,13 +15,12 @@ $ npm install
 
 Create a file credentials.json at the root of the projec. Add the settings for db connection. 
 
-    ```javascript
-    // credentials.json
-    {
-        "host": "",
-        "port": "",
-        "user": "postgress",
-        "password": "",
-        "dbName": "myDB"
-    }
-    ```
+```json
+{
+    "host": "",
+    "port": "",
+    "user": "postgress",
+    "password": "",
+    "dbName": "myDB"
+}
+```
