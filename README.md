@@ -11,7 +11,7 @@ Clone this repository on your local mashine
 
 Install all dependencies
 
-$ npm install
+    $ npm install
 
 Create a file credentials.json at the root of the projec. Add the settings for db connection. 
 
@@ -26,21 +26,26 @@ Create a file credentials.json at the root of the projec. Add the settings for d
 ```
 Edit parameter tableName in testConnect.js on your table.
 ```javascript
-const credentials = require('./credentials.json')
-const DBPostgress = require('./db')
-const pg = new DBPostgress(credentials)
-const tableName = 'YOUR_TABLE_NAME'
+const credentials = require('./credentials.json');
+const DBPostgress = require('./db');
 
 (async () => {
 
-    await pg.openConnection()
+    const pg = new DBPostgress(credentials);
+    const tableName = 'YOUR_TABLE_NAME';
 
-    const result = await pg.getAllFromTable(tableName)
-    console.log(`All information from ${tableName} table >>> \n`, result)
+    try{
 
-    await pg.closeConnection()
+        pg.openConnection();
+        const result = await pg.getAllFromTable(tableName);
+        console.log(`All information from ${tableName} table >>> \n`, result);
 
+    } 
+    finally{    
 
+        pg.closeConnection();
+
+    }
 })()
 ```
 
