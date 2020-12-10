@@ -3,7 +3,6 @@ const { Client } = require('pg')
 /**
  * instance of DB classes for connect to Postgress DB
  */
-
 module.exports = class DBPostgress {
 
     constructor(credentials = null) {
@@ -13,25 +12,22 @@ module.exports = class DBPostgress {
             database: credentials.dbName,
             password: credentials.password,
             port: credentials.port,
-        })
+        });
     }
 
-    async openConnection() {
-        await this.client.open()
+    openConnection() {
+        this.client.connect();
     }
 
-    async closeConnection() {
-        await this.client.end()
+    closeConnection() {
+        this.client.end();
     }
 
-    async getAllFromTable(tableName = null){
-        try{
-            const queryStr = `SELECT * FROM {1}`
-            const values = [tableName]
-            const response = await this.client.query(queryStr, values)
-            return response.rows[0]
-        } catch (err) {
-            new Error(err)
-        }
+    async getAllFromTable(tableName=null){
+        if(!tableName) return new Error('Не передан параметр tableName')
+
+        const queryString = `select * from "${tableName}"`;
+        const result = await this.client.query(queryString);
+        return result.rows;
     }
 }
